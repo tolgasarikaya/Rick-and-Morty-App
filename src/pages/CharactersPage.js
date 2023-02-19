@@ -1,31 +1,31 @@
-import { useLoaderData } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { curPageActions } from "../store/curPage";
+import { useState } from "react";
 
-import Characters from "../components/Characters/Characters";
-import CurrentPage from "../components/CurrentPage/CurrentPage";
+import Characters from "../components/Characters";
+import Filter from "../components/Filter/Filter";
+import Pagination from "../components/Pagination/Pagination";
 
 const CharactersPage = () => {
-  const dispatch = useDispatch();
-  const params = useParams();
-  params.page && dispatch(curPageActions.buttonClick(Number(params.page)));
-
-  const characters = useLoaderData();
+  const [curPage, setCurPage] = useState(1);
+  const [maxPage, setMaxPage] = useState(1);
+  const [name, setName] = useState("");
+  const [input, setInput] = useState({ Status: "", Species: "", Gender: "" });
+  console.log(maxPage);
   return (
     <>
-      <Characters characters={characters} />
-      <CurrentPage />
+      <Filter name={name} setName={setName} input={input} setInput={setInput} />
+      <Characters
+        curPage={curPage}
+        setCurPage={setCurPage}
+        setMaxPage={setMaxPage}
+        maxPage={maxPage}
+        name={name}
+        setName={setName}
+        input={input}
+        setInput={setInput}
+      />
+      <Pagination curPage={curPage} setCurPage={setCurPage} maxPage={maxPage} />
     </>
   );
 };
-export default CharactersPage;
 
-export async function fetchCharacters(curPage) {
-  const charDatas = await fetch(
-    `https://rickandmortyapi.com/api/character/?page=${curPage}`
-  );
-  const jsonChars = await charDatas.json();
-  const charsResult = jsonChars.results;
-  return charsResult;
-}
+export default CharactersPage;
