@@ -11,23 +11,22 @@ const EpisodeCharacters = (props) => {
     });
   const url = "https://rickandmortyapi.com/api/character/" + arr;
 
-  async function fetchCharacters() {
-    if (arr !== []) {
-      try {
-        const data = await fetch(url);
-        const response = await data.json();
+  useEffect(() => {
+    (async function () {
+      if (url !== "https://rickandmortyapi.com/api/character/") {
+        try {
+          const data = await fetch(url);
+          const response = await data.json();
 
-        !response.length && setEpisodeCharacters([response]);
-        response.length && setEpisodeCharacters(response);
-        return response;
-      } catch (err) {
-        console.log(err);
+          !response.length && setEpisodeCharacters([response]);
+          response.length && setEpisodeCharacters(response);
+          return response;
+        } catch (err) {
+          console.log(err);
+        }
       }
-      fetchCharacters();
-    }
-  }
-
-  useEffect(() => fetchCharacters, [url]);
+    })();
+  }, [url]);
 
   return (
     <>

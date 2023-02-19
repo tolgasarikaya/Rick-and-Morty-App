@@ -29,24 +29,6 @@ const Residents = (props) => {
     })();
   }, [url]);
 
-  /* async function fetchCharacters() {
-    if (arr !== []) {
-      try {
-        const data = await fetch(url);
-        const response = await data.json();
-
-        !response.length && setFetchedResidents([response]);
-        response.length && setFetchedResidents(response);
-        return response;
-      } catch (err) {
-        console.log(err);
-      }
-      fetchCharacters();
-    }
-  }
-
-  useEffect(() => fetchCharacters, [url]); */
-
   return (
     <>
       {arr.length === 0 && (
