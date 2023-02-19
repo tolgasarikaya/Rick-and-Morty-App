@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 const Characters = (props) => {
   const [fetchedCharacters, setFetchedCharacters] = useState(null);
   const navigate = useNavigate();
-  console.log(props.input);
   let url = `https://rickandmortyapi.com/api/character/?page=${props.curPage}&name=${props.name}&status=${props.input.Status}&gender=${props.input.Gender}&species=${props.input.Species}`;
 
   useEffect(() => {

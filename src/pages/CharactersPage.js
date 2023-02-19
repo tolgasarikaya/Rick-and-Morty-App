@@ -9,7 +9,6 @@ const CharactersPage = () => {
   const [maxPage, setMaxPage] = useState(1);
   const [name, setName] = useState("");
   const [input, setInput] = useState({ Status: "", Species: "", Gender: "" });
-  console.log(maxPage);
   return (
     <>
       <Filter name={name} setName={setName} input={input} setInput={setInput} />

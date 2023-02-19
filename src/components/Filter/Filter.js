@@ -63,7 +63,6 @@ const Filter = (props) => {
             "Disease",
             "Robot",
             "Cronenberg",
-            "Planet",
             "Unknown",
           ]}
           className="h-28"

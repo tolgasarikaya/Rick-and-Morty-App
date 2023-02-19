@@ -9,6 +9,9 @@ import ErrorPage from "./pages/ErrorPage";
 import CharacterDetailPage, {
   loader as detailLoader,
 } from "./pages/CharacterDetailPage";
+import LocationDetailPage, {
+  loader as locationDetailLoader,
+} from "./pages/LocationDetailPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +34,11 @@ function App() {
           path: "locations",
           element: <LocationsPage />,
           loader: locationLoader,
+        },
+        {
+          path: "locations/:locationId",
+          element: <LocationDetailPage />,
+          loader: locationDetailLoader,
         },
         { path: "episodes", element: <EpisodesPage /> },
       ],

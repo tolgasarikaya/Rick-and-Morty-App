@@ -51,7 +51,6 @@ const Dropdown = (props) => {
             key={index}
             onClick={() => {
               inputHandler(el);
-              console.log(el);
             }}
           >
             {el}
