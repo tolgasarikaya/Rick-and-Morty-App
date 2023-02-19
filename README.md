@@ -17,6 +17,6 @@ On episodes page all the episode names upto now are provided. Again this names a
 
 App is totally responsive and all the pages are linkable.
 
-###Desktop View
+### Desktop View
 <img src="https://user-images.githubusercontent.com/101410787/219967385-86f46d5b-9dcb-4c26-b4f7-9a3c671d214b.png" width=50% height=50%><img src="https://user-images.githubusercontent.com/101410787/219967514-54e38c1a-2b2d-4057-8fd5-666812cff5d9.png" width=50% height=50%>
 
