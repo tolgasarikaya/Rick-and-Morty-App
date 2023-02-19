@@ -8,9 +8,28 @@ const Residents = (props) => {
     props.residents.forEach((element) => {
       arr.push(...element.split("/").slice(-1));
     });
+
   const url = "https://rickandmortyapi.com/api/character/" + arr;
 
-  async function fetchCharacters() {
+  useEffect(() => {
+    (async function () {
+      if (url !== "https://rickandmortyapi.com/api/character/") {
+        try {
+          const data = await fetch(url);
+          const response = await data.json();
+          console.log("UseEffect running!");
+
+          !response.length && setFetchedResidents([response]);
+          response.length && setFetchedResidents(response);
+          return response;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    })();
+  }, [url]);
+
+  /* async function fetchCharacters() {
     if (arr !== []) {
       try {
         const data = await fetch(url);
@@ -26,7 +45,7 @@ const Residents = (props) => {
     }
   }
 
-  useEffect(() => fetchCharacters, [url]);
+  useEffect(() => fetchCharacters, [url]); */
 
   return (
     <>
